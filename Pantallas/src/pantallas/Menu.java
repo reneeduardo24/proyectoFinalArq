@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * @author gateway1
+ * @author rene_
  */
 public class Menu {
     Map<String, Command> menuItems = new HashMap<>();

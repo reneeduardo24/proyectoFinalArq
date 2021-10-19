@@ -7,7 +7,7 @@ package pantallas;
 
 /**
  *
- * @author gateway1
+ * @author rene_
  */
 public interface Command {
     public void execute();

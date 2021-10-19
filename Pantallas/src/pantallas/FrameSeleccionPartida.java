@@ -5,16 +5,17 @@
  */
 package pantallas;
 
-import controles.IFacadaDeNegocio;
+import timbiriche.IObservador;
 import java.awt.Frame;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import timbiriche.Cliente;
 import controles.SeleccionPartida;
-import timbiriche.IObservador;
+import controles.IFacadaDeNegocio;
 
 /**
  *
@@ -22,14 +23,19 @@ import timbiriche.IObservador;
  */
 public class FrameSeleccionPartida extends javax.swing.JDialog implements IObservador {
 
-    private static FrameSeleccionPartida frameSeleccionPartida;
+    private static FrameSeleccionPartida pantallaSeleccionarPartida;
     private Cliente jugador;
     private List<String> partidas;
     private List datosPartida;
     private IFacadaDeNegocio facadaDeNegocio;
-
+    
     /**
-     * Creates new form FrameSeleccionPartida
+     * 
+     * @param parent
+     * @param modal
+     * @param jugador 
+     * @param datosPartida 
+     * @param facadaDeNegocio 
      */
     public FrameSeleccionPartida(java.awt.Frame parent, boolean modal, Cliente jugador, List datosPartida, IFacadaDeNegocio facadaDeNegocio) {
         super(parent, modal);
@@ -38,6 +44,22 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
         this.datosPartida = datosPartida;
         this.facadaDeNegocio = facadaDeNegocio;
         this.partidas = new ArrayList<>();
+    }
+
+    private List<String> getPartidas() {
+        return partidas;
+    }
+
+    public void setPartidas(List<String> partidas) {
+        this.partidas = partidas;
+    }
+
+    public List getDatosPartida() {
+        return datosPartida;
+    }
+
+    public void setDatosPartida(List datosPartida) {
+        this.datosPartida = datosPartida;
     }
 
     /**
@@ -55,10 +77,10 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
         jButton_SeleccionarPartida = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 153));
-        jPanel1.setForeground(new java.awt.Color(153, 0, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 0, 204));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,20 +112,17 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(256, 256, 256)
-                                .addComponent(jButton_SeleccionarPartida))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addComponent(jButton_SeleccionarPartida)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,20 +151,15 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_SeleccionarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SeleccionarPartidaActionPerformed
-        if (jTable1.getSelectedRow() >= 0) {
+        if(jTable1.getSelectedRow() >= 0) {
+            this.datosPartida.clear();
+            this.datosPartida.add(jTable1.getValueAt(jTable1.getSelectedRow(),2));
+            this.datosPartida.add(jTable1.getValueAt(jTable1.getSelectedRow(),3));
+
+            this.setVisible(false);
         }
     }//GEN-LAST:event_jButton_SeleccionarPartidaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    private List<String> getPartidas() {
-        return partidas;
-    }
-
-    public void setDatosPartida(List datosPartida) {
-        this.datosPartida = datosPartida;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_SeleccionarPartida;
@@ -154,30 +168,51 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
     public void mostrarPantalla() {
         this.setVisible(true);
     }
-
+    /**
+     * 
+     * @param parent
+     * @param modal
+     * @param jugador
+     * @param datosDePartida
+     * @param facadaDeNegocio
+     * @return 
+     */
     public static FrameSeleccionPartida getInstacia(Frame parent, boolean modal, Cliente jugador, List datosDePartida, IFacadaDeNegocio facadaDeNegocio) {
-        if (frameSeleccionPartida == null) {
-            frameSeleccionPartida = new FrameSeleccionPartida(parent, modal, jugador, datosDePartida, facadaDeNegocio);
+        if (pantallaSeleccionarPartida == null) {
+            pantallaSeleccionarPartida = new FrameSeleccionPartida(parent, modal, jugador, datosDePartida, facadaDeNegocio);
         }
-        Thread hiloSeleccionPartida;
+        Thread hiloSeleccionPartida;        
         try {
-            SeleccionPartida seleccionPartida = new SeleccionPartida(jugador, frameSeleccionPartida.getPartidas());
-            seleccionPartida.agregarObservador(frameSeleccionPartida);
+            SeleccionPartida seleccionPartida = new SeleccionPartida(jugador, pantallaSeleccionarPartida.getPartidas());
+            seleccionPartida.agregarObservador(pantallaSeleccionarPartida);
             hiloSeleccionPartida = new Thread(seleccionPartida);
             hiloSeleccionPartida.start();
             facadaDeNegocio.obtenerPartidas(jugador, jugador.getIpCliente());
-            frameSeleccionPartida.setDatosPartida(datosDePartida);
+            pantallaSeleccionarPartida.setDatosPartida(datosDePartida);
         } catch (IOException ex) {
             Logger.getLogger(FrameSeleccionPartida.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return frameSeleccionPartida;
+        return pantallaSeleccionarPartida;
+    }
+    /**
+     * 
+     * @param partidas 
+     */
+    public void actualizarTabla(List<String> partidas) {
+        DefaultTableModel dtm = new DefaultTableModel();
+        dtm.setColumnIdentifiers(new String[]{"Nombre de Jugador","Cupos Disponibles","Capacidad de Partida", "Ip", "Puerto"});
+        for (String partida : partidas) {
+            dtm.addRow(partida.split(","));
+        }
+        jTable1.setModel(dtm);
     }
 
     @Override
     public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.actualizarTabla(partidas);
     }
 }

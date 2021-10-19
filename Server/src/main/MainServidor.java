@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package main;
+
+import server.Server;
 
 /**
  *
- * @author rene_
+ * @author pc
  */
-public class Server {
+public class MainServidor {
 
     /**
      * @param args the command line arguments
      */
+    public static void main(String[] args) {
+    }
     
 }

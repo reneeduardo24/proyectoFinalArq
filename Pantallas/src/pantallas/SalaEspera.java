@@ -5,8 +5,7 @@
  */
 package pantallas;
 
-import controles.IFacadaDeNegocio;
-import controles.SalaDeEspera;
+import timbiriche.IObservador;
 import java.awt.Frame;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import timbiriche.Cliente;
-import timbiriche.IObservador;
+import timbiriche.Jugador;
+import controles.SalaDeEspera;
+import controles.IFacadaDeNegocio;
+import java.awt.Font;
 
 /**
  *
@@ -23,7 +25,7 @@ import timbiriche.IObservador;
  */
 public class SalaEspera extends javax.swing.JDialog implements IObservador{
 
-    private static SalaEspera salaEspera;
+    private static SalaEspera pantallaSalaDeEspera;
     private List<Cliente> listaJugadores;
     private Cliente jugador;
     private int capacidadDePartida;
@@ -38,7 +40,13 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
     int ANCHO_DE_PANTALLA;
 
     /**
-     * Creates new form NewJFrame
+     * 
+     * @param parent
+     * @param modal
+     * @param jugador
+     * @param listaJugadores 
+     * @param capacidadDePartida 
+     * @param facadaDeControl 
      */
     public SalaEspera(java.awt.Frame parent, boolean modal, 
             Cliente jugador, List<Cliente> listaJugadores, 
@@ -51,16 +59,57 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
         this.facadaDeControl = facadaDeControl;
         this.capacidadDePartida = capacidadDePartida;
     }
-
+    
     public void ajustarPantalla() {
-        this.ANCHO_DE_PANTALLA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width / 2;
-        this.ALTO_DE_PANTALLA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height / 2;
-        this.setSize((int) (this.ANCHO_DE_PANTALLA), (int) (this.ALTO_DE_PANTALLA));
-        this.jPanel1.setSize((int) (ANCHO_DE_PANTALLA), (int) (ALTO_DE_PANTALLA));
+        this.ANCHO_DE_PANTALLA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width/2;
+        this.ALTO_DE_PANTALLA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height/2;
+        this.setSize((int)(this.ANCHO_DE_PANTALLA), (int)(this.ALTO_DE_PANTALLA));
+        this.jPanel1.setSize((int)(ANCHO_DE_PANTALLA), (int)(ALTO_DE_PANTALLA));
         this.ANCHO_DE_PANEL = this.jPanel1.getWidth();
         this.ALTO_DE_PANEL = this.jPanel1.getHeight();
         this.setLocationRelativeTo(null);
     }
+    
+    
+    /**
+     * 
+     */
+    public void actualizarPantalla() {
+        if(this.capacidadDePartida == this.listaJugadores.size()) {
+            this.jButton_Preparado.setEnabled(true);
+        }
+        for (int i = listaLabels.size(); i < listaJugadores.size(); i++) {
+            JLabel nuevoLabel = new JLabel();
+            nuevoLabel.setHorizontalTextPosition(JLabel.CENTER);
+            nuevoLabel.setVerticalTextPosition(JLabel.TOP);
+            nuevoLabel.setHorizontalAlignment(JLabel.CENTER);
+            nuevoLabel.setVerticalAlignment(JLabel.TOP);
+            nuevoLabel.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 18));
+            listaLabels.add(nuevoLabel);
+        }
+        int anchoLabel = this.ANCHO_DE_PANEL / this.listaLabels.size();
+        int altoLabel = this.ALTO_DE_PANEL;
+        double localizacionX = this.jPanel1.getLocation().getX();
+        for (int i = 0; i < this.listaJugadores.size(); i++) {
+            JLabel label = this.listaLabels.get(i);
+            Jugador jugadorIterador = (Jugador)this.listaJugadores.get(i);
+            this.jPanel1.add(label);
+            label.setOpaque(true);
+            label.setBackground(jugadorIterador.getColor());
+            label.setSize(anchoLabel, altoLabel);
+            label.setLocation((int)localizacionX, 0);
+            localizacionX += anchoLabel;
+            if (jugadorIterador.isPreparado()) {
+                label.setIcon(jugadorIterador.getAvatar().getIcono());                
+                label.setText("<html>"+jugadorIterador.getNombre()+"<br>"+"Listo</html>");
+            } else {
+                label.setIcon(jugadorIterador.getAvatar().getIcono());
+                label.setText("<html>"+jugadorIterador.getNombre()+"<br>"+"No listo</html>");
+            }
+            
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,22 +120,17 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jButton_Preparado = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Sala de Espera");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton_Preparado.setText("Iniciar Partida");
         jButton_Preparado.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +142,17 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sala de Espera");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 654, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 364, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,9 +181,34 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_PreparadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PreparadoActionPerformed
-
+        this.puerto = this.salaDeEspera.getPuerto();
+        this.facadaDeControl.setPreparado(this.jugador, this.puerto);
     }//GEN-LAST:event_jButton_PreparadoActionPerformed
-    
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+    }//GEN-LAST:event_formWindowClosed
+
+    /**
+     * 
+     * @return 
+     */
+    public boolean isJugadoresPreparados() {
+        if (this.listaJugadores.size() == 4) {
+            for (Cliente jugadorIterador : this.listaJugadores) {
+                ((Jugador) jugadorIterador).setPreparado(true);
+            }
+            return true;
+        }
+        
+        for (Cliente jugadorIterador: this.listaJugadores) {
+            if(!((Jugador)jugadorIterador).isPreparado()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void mostrarPantalla() {
         ajustarPantalla();
         this.jPanel1.removeAll();
@@ -137,15 +217,15 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
         this.jButton_Preparado.setEnabled(false);
         this.setVisible(true);
     }
-    
+
     /**
-     *
-     * @param jugador
+     * 
+     * @param jugador 
      */
     public void setJugador(Cliente jugador) {
         this.jugador = jugador;
     }
-
+    
     public void setListaJugadores(List<Cliente> listaJugadores) {
         this.listaJugadores = listaJugadores;
     }
@@ -180,29 +260,36 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
 
     public void setSalaDeEspera(SalaDeEspera salaDeEspera) {
         this.salaDeEspera = salaDeEspera;
-    }
-
+    }  
+    
     /**
-     * @param args the command line arguments
+     * 
+     * @param parent
+     * @param modal
+     * @param jugador
+     * @param listaJugadores
+     * @param capacidadDePartida
+     * @param facadaDeControl
+     * @return
      */
     public static SalaEspera getInstacia(Frame parent, boolean modal,
             Cliente jugador, List<Cliente> listaJugadores, int capacidadDePartida,
             IFacadaDeNegocio facadaDeControl) {
-        if (salaEspera == null) {
-            salaEspera = new SalaEspera(parent, modal, jugador, listaJugadores, capacidadDePartida, facadaDeControl);
+        if (pantallaSalaDeEspera == null) {
+            pantallaSalaDeEspera = new SalaEspera(parent, modal, jugador, listaJugadores, capacidadDePartida,facadaDeControl);
         } else {
-            salaEspera.setJugador(jugador);
-            salaEspera.setCapacidadDePartida(capacidadDePartida);
-            salaEspera.setListaJugadores(listaJugadores);
-
+            pantallaSalaDeEspera.setJugador(jugador);
+            pantallaSalaDeEspera.setCapacidadDePartida(capacidadDePartida);
+            pantallaSalaDeEspera.setListaJugadores(listaJugadores);
+            
         }
         try {
-            salaEspera.setSalaDeEspera(new SalaDeEspera(salaEspera.getJugador(), salaEspera.getListaJugadores(), salaEspera.getPuerto()));
-            salaEspera.getSalaDeEspera().agregarObservador(salaEspera);
+            pantallaSalaDeEspera.setSalaDeEspera(new SalaDeEspera(pantallaSalaDeEspera.getJugador(), pantallaSalaDeEspera.getListaJugadores(), pantallaSalaDeEspera.getPuerto()));
+            pantallaSalaDeEspera.getSalaDeEspera().agregarObservador(pantallaSalaDeEspera);
         } catch (IOException ex) {
             Logger.getLogger(SalaEspera.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return salaEspera;
+        return pantallaSalaDeEspera;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_Preparado;
@@ -212,6 +299,10 @@ public class SalaEspera extends javax.swing.JDialog implements IObservador{
 
     @Override
     public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.actualizarPantalla();
+        ((Jugador)this.jugador).setColor(((Jugador)this.listaJugadores.get(this.listaJugadores.indexOf(this.jugador))).getColor());
+        if (this.isJugadoresPreparados()) {
+            this.setVisible(false);
+        }
     }
 }
