@@ -98,23 +98,30 @@ public class FrameRegistro extends javax.swing.JDialog {
         jRadioButton_Imagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.png"))); // NOI18N
-        jRadioButton_Imagen1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.png"))); // NOI18N
-        jRadioButton_Imagen1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jRadioButton_Imagen1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jRadioButton_Imagen1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
 
         buttonGroup1.add(jRadioButton_Imagen2);
         jRadioButton_Imagen2.setContentAreaFilled(false);
         jRadioButton_Imagen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.png"))); // NOI18N
-        jRadioButton_Imagen2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jRadioButton_Imagen2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jRadioButton_Imagen2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
+        jRadioButton_Imagen2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
+        jRadioButton_Imagen2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
+        jRadioButton_Imagen2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
 
         buttonGroup1.add(jRadioButton_Imagen3);
         jRadioButton_Imagen3.setContentAreaFilled(false);
         jRadioButton_Imagen3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.png"))); // NOI18N
+        jRadioButton_Imagen3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
+        jRadioButton_Imagen3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
+        jRadioButton_Imagen3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
+        jRadioButton_Imagen3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
         jRadioButton_Imagen3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jRadioButton_Imagen3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -123,6 +130,10 @@ public class FrameRegistro extends javax.swing.JDialog {
         jRadioButton_Imagen4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.png"))); // NOI18N
+        jRadioButton_Imagen4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
+        jRadioButton_Imagen4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
+        jRadioButton_Imagen4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
+        jRadioButton_Imagen4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
         jRadioButton_Imagen4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jRadioButton_Imagen4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 

@@ -25,6 +25,7 @@ public class FrameInicio extends javax.swing.JFrame {
      */
     public FrameInicio() {
         initComponents();
+        setSize(400, 300);
         
         this.jugador = new Jugador();
         this.jugador.setIpHost(IpServidor.ipServidor);
