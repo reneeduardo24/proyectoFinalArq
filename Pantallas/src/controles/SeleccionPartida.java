@@ -16,7 +16,7 @@ import timbiriche.IObservador;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class SeleccionPartida implements Runnable{
     

@@ -79,8 +79,8 @@ public class FrameSeleccionPartida extends javax.swing.JDialog implements IObser
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 0, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 204, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

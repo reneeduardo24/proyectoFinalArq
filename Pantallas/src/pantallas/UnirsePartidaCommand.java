@@ -37,7 +37,9 @@ public class UnirsePartidaCommand implements Command {
             int capacidad = Integer.parseInt((String) datosPartida.get(0));
             String ip = (String) datosPartida.get(1);
             List<Cliente> listaDeJugadores = new ArrayList<>();
+            FrameSalaEspera pantallaSalaDeEspera = FrameSalaEspera.getInstacia(pantalla, true, jugador, listaDeJugadores, capacidad, facadaDeControl);
             facadaDeControl.unirseAPartida(jugador, ip);
+            pantallaSalaDeEspera.mostrarPantalla();
 
     //        FrameJuego frameJuego = FrameJuego.getInstacia(listaDeJugadores, jugador, facadaDeControl);
             FrameJuego frameJuego = new FrameJuego(listaDeJugadores, jugador, facadaDeControl);

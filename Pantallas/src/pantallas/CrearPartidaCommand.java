@@ -28,9 +28,9 @@ public class CrearPartidaCommand implements Command {
         List<Cliente> listaDeJugadores = new ArrayList<>();
         if (capacidadDePartida > 0) {
             pantalla.obtenerFacadaControl().guardarPartida(pantalla.obtenerJugador(), capacidadDePartida);
-            SalaEspera salaEspera = SalaEspera.getInstacia(pantalla, true, pantalla.obtenerJugador(), listaDeJugadores, capacidadDePartida, pantalla.obtenerFacadaControl());
+            FrameSalaEspera pantallaSalaDeEspera = FrameSalaEspera.getInstacia(pantalla, true, pantalla.obtenerJugador(), listaDeJugadores, capacidadDePartida, pantalla.obtenerFacadaControl());
             pantalla.obtenerFacadaControl().unirseAPartida(pantalla.obtenerJugador(), pantalla.obtenerJugador().getIpCliente());
-            salaEspera.mostrarPantalla();
+            pantallaSalaDeEspera.mostrarPantalla();
             if (listaDeJugadores.size() > 1) {
 //            FrameJuego frameJuego = FrameJuego.getInstacia(listaDeJugadores, pantalla.obtenerJugador(), pantalla.obtenerFacadaControl());
                 FrameJuego frameJuego = new FrameJuego(listaDeJugadores, pantalla.obtenerJugador(), pantalla.obtenerFacadaControl());

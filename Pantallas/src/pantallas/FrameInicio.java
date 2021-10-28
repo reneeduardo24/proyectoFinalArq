@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class FrameInicio extends javax.swing.JFrame {
 
@@ -25,7 +25,7 @@ public class FrameInicio extends javax.swing.JFrame {
      */
     public FrameInicio() {
         initComponents();
-        setSize(400, 300);
+        setSize(500, 450);
         
         this.jugador = new Jugador();
         this.jugador.setIpHost(IpServidor.ipServidor);
@@ -83,7 +83,7 @@ public class FrameInicio extends javax.swing.JFrame {
                 jButton_RegistrarJugadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_RegistrarJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 150, -1));
+        getContentPane().add(jButton_RegistrarJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 150, -1));
 
         jButton_CrearPartida.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         jButton_CrearPartida.setText("Crear Partida");
@@ -92,7 +92,7 @@ public class FrameInicio extends javax.swing.JFrame {
                 jButton_CrearPartidaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_CrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 150, -1));
+        getContentPane().add(jButton_CrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 150, -1));
 
         jButton3.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         jButton3.setText("Salir");
@@ -101,7 +101,7 @@ public class FrameInicio extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 150, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 150, -1));
 
         jButton_UnirseAPartida.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         jButton_UnirseAPartida.setText("Unirse a Partida");
@@ -110,9 +110,9 @@ public class FrameInicio extends javax.swing.JFrame {
                 jButton_UnirseAPartidaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_UnirseAPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 150, -1));
+        getContentPane().add(jButton_UnirseAPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mesh-1430108_1280.jpg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(750, 450));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
 

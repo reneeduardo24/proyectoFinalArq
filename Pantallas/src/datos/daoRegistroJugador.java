@@ -13,7 +13,7 @@ import timbiriche.Cliente;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class daoRegistroJugador {
     

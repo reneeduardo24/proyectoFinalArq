@@ -5,28 +5,54 @@
  */
 package pantallas;
 
-import controles.IFacadaDeNegocio;
+import timbiriche.IObservador;
 import java.util.List;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import timbiriche.Cliente;
+import controles.IFacadaDeNegocio;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
  * @author rene_
  */
-public class FrameJuego extends javax.swing.JFrame {
-
-
+public class FrameJuego extends javax.swing.JFrame implements IObservador {
+    
+    private static FrameJuego frameJuego;
+    private Lienzo lienzo;
+    private List<Cliente> listaJugadores;
+    
     /**
-     * Creates new form FrameJuego
+     * Creates new form frameJuego
+     * @param listaDeJugadores
+     * @param jugador
+     * @param facadaDeNegocio
      */
     public FrameJuego(List<Cliente> listaDeJugadores, Cliente jugador, IFacadaDeNegocio facadaDeNegocio) {
         initComponents();
-
+        this.setSize(1300, 950);
+        this.listaJugadores = listaDeJugadores;
+        lienzo = new Lienzo(this.listaJugadores, jugador, facadaDeNegocio);
+        lienzo.setLocation(25, 25);
+        lienzo.agregarObservador(this);
+        JPanel panelPuntuacion = lienzo.getPanel();
+        panelPuntuacion.setLocation(900,25);
+        this.add(panelPuntuacion);
+        this.add(lienzo);
+        
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
-    }
+        /*
+            this.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent event) {
+                    lienzo.llamarAbandonarPartida();
+                    frameJuego.dispose();
+                }
+            });
+        */
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,27 +64,46 @@ public class FrameJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Timbiriche");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 883, Short.MAX_VALUE)
+            .addGap(0, 936, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 473, Short.MAX_VALUE)
+            .addGap(0, 492, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public static FrameJuego getInstacia(List<Cliente> listaDeJugadores, Cliente jugador, IFacadaDeNegocio facadaDeNegocio) {
+        if (frameJuego == null) {
+            frameJuego = new FrameJuego(listaDeJugadores, jugador, facadaDeNegocio);
+        } else {
+            frameJuego.setListaJugadores(listaDeJugadores);
+        }
+        return frameJuego;
+    }
+    
+    public void setListaJugadores(List<Cliente> listaDeJugadores) {
+        this.listaJugadores.clear();
+        this.listaJugadores.addAll(listaDeJugadores);
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public void mostrarPantalla() {
+        lienzo.prepararLienzo();
         this.setVisible(true);
     }
+
+    @Override
+    public void actualizar() {
+        this.setVisible(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

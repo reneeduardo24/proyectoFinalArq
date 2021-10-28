@@ -30,7 +30,7 @@ public class ControlRegistro {
             throw new Exception("Ingrese un nombre");
         }
         if(jugadorNuevo.getNombre().length() > 10) {
-            throw new Exception("Ingrese un nombre no muy largo");
+            throw new Exception("Ingrese un nombre de maximo 10 caracteres");
         }
         this.facadadeDatos.guardarJugador(jugador);
     }

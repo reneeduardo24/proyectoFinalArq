@@ -11,7 +11,7 @@ import timbiriche.Linea;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public interface IFacadaDeNegocio {
     

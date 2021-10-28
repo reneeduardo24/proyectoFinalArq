@@ -14,7 +14,7 @@ import timbiriche.Avatar;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class FrameRegistro extends javax.swing.JDialog {
     
@@ -52,7 +52,6 @@ public class FrameRegistro extends javax.swing.JDialog {
         jButton_Registrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jRadioButton_Imagen1 = new javax.swing.JRadioButton();
         jRadioButton_Imagen2 = new javax.swing.JRadioButton();
@@ -64,7 +63,7 @@ public class FrameRegistro extends javax.swing.JDialog {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         jTextField1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 14)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -88,40 +87,38 @@ public class FrameRegistro extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Registro");
 
-        jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 12)); // NOI18N
-        jLabel3.setText("Seleccione un personaje");
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         buttonGroup1.add(jRadioButton_Imagen1);
         jRadioButton_Imagen1.setContentAreaFilled(false);
         jRadioButton_Imagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jRadioButton_Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.png"))); // NOI18N
-        jRadioButton_Imagen1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
-        jRadioButton_Imagen1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
-        jRadioButton_Imagen1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
-        jRadioButton_Imagen1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.png"))); // NOI18N
+        jRadioButton_Imagen1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen1.1.png"))); // NOI18N
+        jRadioButton_Imagen1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jRadioButton_Imagen1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         buttonGroup1.add(jRadioButton_Imagen2);
         jRadioButton_Imagen2.setContentAreaFilled(false);
         jRadioButton_Imagen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jRadioButton_Imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.png"))); // NOI18N
-        jRadioButton_Imagen2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
-        jRadioButton_Imagen2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
-        jRadioButton_Imagen2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
-        jRadioButton_Imagen2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img2.2.png"))); // NOI18N
+        jRadioButton_Imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen2.png"))); // NOI18N
+        jRadioButton_Imagen2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen2.1.png"))); // NOI18N
+        jRadioButton_Imagen2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen2.1.png"))); // NOI18N
+        jRadioButton_Imagen2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen2.1.png"))); // NOI18N
+        jRadioButton_Imagen2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jRadioButton_Imagen2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         buttonGroup1.add(jRadioButton_Imagen3);
         jRadioButton_Imagen3.setContentAreaFilled(false);
         jRadioButton_Imagen3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jRadioButton_Imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.png"))); // NOI18N
-        jRadioButton_Imagen3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
-        jRadioButton_Imagen3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
-        jRadioButton_Imagen3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
-        jRadioButton_Imagen3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img3.3.png"))); // NOI18N
+        jRadioButton_Imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen3.png"))); // NOI18N
+        jRadioButton_Imagen3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen3.1.png"))); // NOI18N
+        jRadioButton_Imagen3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen3.1.png"))); // NOI18N
+        jRadioButton_Imagen3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen3.1.png"))); // NOI18N
         jRadioButton_Imagen3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jRadioButton_Imagen3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -129,11 +126,10 @@ public class FrameRegistro extends javax.swing.JDialog {
         jRadioButton_Imagen4.setContentAreaFilled(false);
         jRadioButton_Imagen4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jRadioButton_Imagen4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jRadioButton_Imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.png"))); // NOI18N
-        jRadioButton_Imagen4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
-        jRadioButton_Imagen4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
-        jRadioButton_Imagen4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
-        jRadioButton_Imagen4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img4.4.png"))); // NOI18N
+        jRadioButton_Imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen4.png"))); // NOI18N
+        jRadioButton_Imagen4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen4.1.png"))); // NOI18N
+        jRadioButton_Imagen4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen4.1.png"))); // NOI18N
+        jRadioButton_Imagen4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Imagen4.1.png"))); // NOI18N
         jRadioButton_Imagen4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jRadioButton_Imagen4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -181,16 +177,12 @@ public class FrameRegistro extends javax.swing.JDialog {
                         .addGap(414, 414, 414)
                         .addComponent(jButton_Registrar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
+                        .addGap(292, 292, 292)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(382, 382, 382))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,9 +193,7 @@ public class FrameRegistro extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jButton_Registrar)
@@ -253,7 +243,6 @@ public class FrameRegistro extends javax.swing.JDialog {
     private javax.swing.JButton jButton_Registrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton_Imagen1;
