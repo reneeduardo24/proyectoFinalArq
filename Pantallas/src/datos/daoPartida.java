@@ -72,7 +72,6 @@ public class daoPartida {
                     oos.close();
                     cliente.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(daoMovimiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
             }

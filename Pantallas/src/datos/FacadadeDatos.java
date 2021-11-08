@@ -19,14 +19,12 @@ public class FacadadeDatos implements IFacadadeDatos {
     private daoPartida daoPartida;
     private daoUnirseAPartida daoUnirseAPartida;
     private daoPreparadoSalaDeEspera daoPreparadoSalaDeEspera;
-    private daoMovimiento daoMovimiento;
     
     public FacadadeDatos() {
         this.daoRegistroJugador = new daoRegistroJugador();
         this.daoPartida = new daoPartida();
         this.daoUnirseAPartida = new daoUnirseAPartida();
         this.daoPreparadoSalaDeEspera = new daoPreparadoSalaDeEspera();
-        this.daoMovimiento = new daoMovimiento();
     }
 
     @Override
@@ -56,7 +54,6 @@ public class FacadadeDatos implements IFacadadeDatos {
 
     @Override
     public void enviarMovimiento(List<Cliente> listaJugadores, Cliente jugador, Linea linea) {
-        this.daoMovimiento.enviarMovimiento(listaJugadores, jugador, linea);
     }
 
     @Override
