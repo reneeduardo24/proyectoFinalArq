@@ -313,6 +313,20 @@ public class Partida extends PartidaVisitador implements Runnable {
         }
         
         // Valida linea de arriba a abajo
+        nodoAuxiliar = nodoFin.getNodoAbajo();
+            if (nodoAuxiliar != null) {
+                cuadro = new Cuadro(((Jugador)this.listaDeJugadores.get(this.turno)).getColor(),nodoFin.getEjeX(), nodoFin.getEjeY(),distanciaEntreNodos);
+                nodoAuxiliar = nodoAuxiliar.getNodoDerecha();
+                if (nodoAuxiliar != null) {
+                    nodoAuxiliar = nodoAuxiliar.getNodoArriba();
+                    nodoAuxiliar = nodoAuxiliar.getNodoAbajo();
+                    if (nodoAuxiliar != null) {
+                        this.listaDeCuadros.add(cuadro);
+                        numeroDeCuadros++;
+                    }
+                }
+            }
+        
         
         //Valida si existe un cuadro a la derecha
         if(nodoInicial.getEjeY() < nodoFin.getEjeY()) {
