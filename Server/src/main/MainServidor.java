@@ -9,7 +9,7 @@ import server.Server;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class MainServidor {
 

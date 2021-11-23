@@ -24,7 +24,7 @@ import timbiriche.Cliente;
 
 /**
  *
- * @author pc
+ * @author rene_
  */
 public class Server extends ServidorVisitador{
     private final int puerto = 2027;
